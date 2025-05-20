@@ -2,6 +2,8 @@
 *.cache/
 *.hw/
 *.runs/
+*.sw/*
+!*.sw/UART
 
 #Auto-generated files
 *.xpr
