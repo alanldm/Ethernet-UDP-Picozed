@@ -1,0 +1,11 @@
+#Auto-generated folders
+*.cache/
+*.hw/
+*.runs/
+
+#Auto-generated files
+*.xpr
+
+Ethernet-UDP-Picozed.srcs/sources_1/bd/blocks/*
+!Ethernet-UDP-Picozed.srcs/sources_1/bd/blocks/*.bd
+!Ethernet-UDP-Picozed.srcs/sources_1/bd/blocks/hdl/
