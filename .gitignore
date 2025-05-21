@@ -2,8 +2,11 @@
 *.cache/
 *.hw/
 *.runs/
+*.ip_user_files/
+Packages/
 *.sw/*
 !*.sw/UART
+!*.sw/LED
 
 #Auto-generated files
 *.xpr

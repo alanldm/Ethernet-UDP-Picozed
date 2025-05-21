@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Tue May 20 10:34:32 2025
+--Date        : Tue May 20 17:12:50 2025
 --Host        : GANP1847 running 64-bit major release  (build 9200)
 --Command     : generate_target blocks_wrapper.bd
 --Design      : blocks_wrapper
@@ -34,15 +34,14 @@ entity blocks_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    pl_leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    pl_pbs_5bits_tri_i : in STD_LOGIC_VECTOR ( 4 downto 0 )
+    pl_leds_2bits_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    pl_pbs_2bits_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
 end blocks_wrapper;
 
 architecture STRUCTURE of blocks_wrapper is
   component blocks is
   port (
-    pl_leds_4bits_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -58,13 +57,14 @@ architecture STRUCTURE of blocks_wrapper is
     DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    pl_pbs_5bits_tri_i : in STD_LOGIC_VECTOR ( 4 downto 0 );
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    pl_leds_2bits_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    pl_pbs_2bits_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component blocks;
 begin
@@ -91,7 +91,7 @@ blocks_i: component blocks
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      pl_leds_4bits_tri_o(3 downto 0) => pl_leds_4bits_tri_o(3 downto 0),
-      pl_pbs_5bits_tri_i(4 downto 0) => pl_pbs_5bits_tri_i(4 downto 0)
+      pl_leds_2bits_tri_o(1 downto 0) => pl_leds_2bits_tri_o(1 downto 0),
+      pl_pbs_2bits_tri_i(1 downto 0) => pl_pbs_2bits_tri_i(1 downto 0)
     );
 end STRUCTURE;
