@@ -23,6 +23,7 @@
       },
       "rst_ps7_0_100M": "",
       "ila_0": "",
+      "vio_0": "",
       "register_bank_0": ""
     },
     "interface_ports": {
@@ -1286,16 +1287,16 @@
               }
             },
             "interface_nets": {
-              "s00_couplers_to_auto_pc": {
-                "interface_ports": [
-                  "S_AXI",
-                  "auto_pc/S_AXI"
-                ]
-              },
               "auto_pc_to_s00_couplers": {
                 "interface_ports": [
                   "M_AXI",
                   "auto_pc/M_AXI"
+                ]
+              },
+              "s00_couplers_to_auto_pc": {
+                "interface_ports": [
+                  "S_AXI",
+                  "auto_pc/S_AXI"
                 ]
               }
             },
@@ -1484,28 +1485,28 @@
               "s00_couplers/S_AXI"
             ]
           },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
-            ]
-          },
           "m00_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
               "M00_AXI",
               "m00_couplers/M_AXI"
             ]
           },
-          "m01_couplers_to_ps7_0_axi_periph": {
+          "s00_couplers_to_xbar": {
             "interface_ports": [
-              "M01_AXI",
-              "m01_couplers/M_AXI"
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
             "interface_ports": [
               "xbar/M00_AXI",
               "m00_couplers/S_AXI"
+            ]
+          },
+          "m01_couplers_to_ps7_0_axi_periph": {
+            "interface_ports": [
+              "M01_AXI",
+              "m01_couplers/M_AXI"
             ]
           },
           "xbar_to_m01_couplers": {
@@ -1592,6 +1593,33 @@
           }
         }
       },
+      "vio_0": {
+        "vlnv": "xilinx.com:ip:vio:3.0",
+        "xci_name": "blocks_vio_0_0",
+        "parameters": {
+          "C_NUM_PROBE_IN": {
+            "value": "0"
+          },
+          "C_NUM_PROBE_OUT": {
+            "value": "6"
+          },
+          "C_PROBE_OUT1_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT2_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT3_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT4_WIDTH": {
+            "value": "32"
+          },
+          "C_PROBE_OUT5_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
       "register_bank_0": {
         "vlnv": "ganil.priv:user:register_bank:1.0.0",
         "xci_name": "blocks_register_bank_0_1"
@@ -1604,28 +1632,16 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "axi_gpio_1_GPIO": {
-        "interface_ports": [
-          "pl_pbs_2bits",
-          "axi_gpio_1/GPIO"
-        ]
-      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR",
           "processing_system7_0/DDR"
         ]
       },
-      "axi_gpio_0_GPIO": {
+      "axi_gpio_1_GPIO": {
         "interface_ports": [
-          "pl_leds_2bits",
-          "axi_gpio_0/GPIO"
-        ]
-      },
-      "ps7_0_axi_periph_M00_AXI": {
-        "interface_ports": [
-          "ps7_0_axi_periph/M00_AXI",
-          "axi_gpio_0/S_AXI"
+          "pl_pbs_2bits",
+          "axi_gpio_1/GPIO"
         ]
       },
       "ps7_0_axi_periph_M01_AXI": {
@@ -1634,16 +1650,28 @@
           "axi_gpio_1/S_AXI"
         ]
       },
+      "ps7_0_axi_periph_M02_AXI": {
+        "interface_ports": [
+          "ps7_0_axi_periph/M02_AXI",
+          "register_bank_0/S00_AXI"
+        ]
+      },
+      "axi_gpio_0_GPIO": {
+        "interface_ports": [
+          "pl_leds_2bits",
+          "axi_gpio_0/GPIO"
+        ]
+      },
       "processing_system7_0_M_AXI_GP0": {
         "interface_ports": [
           "processing_system7_0/M_AXI_GP0",
           "ps7_0_axi_periph/S00_AXI"
         ]
       },
-      "ps7_0_axi_periph_M02_AXI": {
+      "ps7_0_axi_periph_M00_AXI": {
         "interface_ports": [
-          "ps7_0_axi_periph/M02_AXI",
-          "register_bank_0/S00_AXI"
+          "ps7_0_axi_periph/M00_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       }
     },
@@ -1661,6 +1689,7 @@
           "ps7_0_axi_periph/M01_ACLK",
           "ps7_0_axi_periph/M02_ACLK",
           "ila_0/clk",
+          "vio_0/clk",
           "register_bank_0/s00_axi_aclk"
         ]
       },
@@ -1711,6 +1740,42 @@
         "ports": [
           "register_bank_0/reg9_out",
           "ila_0/probe4"
+        ]
+      },
+      "vio_0_probe_out0": {
+        "ports": [
+          "vio_0/probe_out0",
+          "register_bank_0/PL_AXI"
+        ]
+      },
+      "vio_0_probe_out1": {
+        "ports": [
+          "vio_0/probe_out1",
+          "register_bank_0/reg0_in"
+        ]
+      },
+      "vio_0_probe_out2": {
+        "ports": [
+          "vio_0/probe_out2",
+          "register_bank_0/reg1_in"
+        ]
+      },
+      "vio_0_probe_out3": {
+        "ports": [
+          "vio_0/probe_out3",
+          "register_bank_0/reg2_in"
+        ]
+      },
+      "vio_0_probe_out4": {
+        "ports": [
+          "vio_0/probe_out4",
+          "register_bank_0/reg3_in"
+        ]
+      },
+      "vio_0_probe_out5": {
+        "ports": [
+          "vio_0/probe_out5",
+          "register_bank_0/reg4_in"
         ]
       }
     },

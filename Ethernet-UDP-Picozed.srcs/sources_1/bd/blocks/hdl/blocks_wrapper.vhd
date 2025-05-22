@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Wed May 21 16:23:28 2025
+--Date        : Thu May 22 11:07:58 2025
 --Host        : GANP1847 running 64-bit major release  (build 9200)
 --Command     : generate_target blocks_wrapper.bd
 --Design      : blocks_wrapper
@@ -42,13 +42,13 @@ end blocks_wrapper;
 architecture STRUCTURE of blocks_wrapper is
   component blocks is
   port (
-    pl_pbs_2bits_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 );
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ddr_vrn : inout STD_LOGIC;
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
+    pl_pbs_2bits_tri_i : in STD_LOGIC_VECTOR ( 1 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
